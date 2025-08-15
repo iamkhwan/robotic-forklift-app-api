@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForkliftAPI.Domain", "ForkliftAPI.Domain\ForkliftAPI.Domain.csproj", "{855D99C1-846A-4792-B304-271A019AA7E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForkliftAPI.Application", "ForkliftAPI.Application\ForkliftAPI.Application.csproj", "{E9BD61CE-387B-4E76-BDA2-7CC5D80B145D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForkliftAPI.Infrastructure", "ForkliftAPI.Infrastructure\ForkliftAPI.Infrastructure.csproj", "{4CE11257-8D53-415E-BB9B-8C901E8CD8B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForkliftAPI.Api", "ForkliftAPI.Api\ForkliftAPI.Api.csproj", "{3D2C601D-9B77-405A-B845-10042FCB3780}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForkliftAPI.UnitTests", "ForkliftAPI.UnitTests\ForkliftAPI.UnitTests.csproj", "{9F8446D8-8D56-41F0-9BF7-07526104C9BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{855D99C1-846A-4792-B304-271A019AA7E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{855D99C1-846A-4792-B304-271A019AA7E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{855D99C1-846A-4792-B304-271A019AA7E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{855D99C1-846A-4792-B304-271A019AA7E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BD61CE-387B-4E76-BDA2-7CC5D80B145D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BD61CE-387B-4E76-BDA2-7CC5D80B145D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BD61CE-387B-4E76-BDA2-7CC5D80B145D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BD61CE-387B-4E76-BDA2-7CC5D80B145D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE11257-8D53-415E-BB9B-8C901E8CD8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE11257-8D53-415E-BB9B-8C901E8CD8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE11257-8D53-415E-BB9B-8C901E8CD8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE11257-8D53-415E-BB9B-8C901E8CD8B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2C601D-9B77-405A-B845-10042FCB3780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2C601D-9B77-405A-B845-10042FCB3780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2C601D-9B77-405A-B845-10042FCB3780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2C601D-9B77-405A-B845-10042FCB3780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6FB1E1-32D2-4A64-830A-ED5137757058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6FB1E1-32D2-4A64-830A-ED5137757058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6FB1E1-32D2-4A64-830A-ED5137757058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6FB1E1-32D2-4A64-830A-ED5137757058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F8446D8-8D56-41F0-9BF7-07526104C9BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8446D8-8D56-41F0-9BF7-07526104C9BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8446D8-8D56-41F0-9BF7-07526104C9BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8446D8-8D56-41F0-9BF7-07526104C9BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
