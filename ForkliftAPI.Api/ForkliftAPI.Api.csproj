@@ -18,6 +18,9 @@
     <Content Include="..\forklift.db" CopyToOutputDirectory="PreserveNewest">
       <Link>forklift.db</Link>
     </Content>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <PropertyGroup>
