@@ -14,6 +14,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\forklift.db" CopyToOutputDirectory="PreserveNewest">
+      <Link>forklift.db</Link>
+    </Content>
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
