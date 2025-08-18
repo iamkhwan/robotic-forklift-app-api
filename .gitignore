@@ -1,0 +1,48 @@
+#
+# A common gitignore file for C# projects.
+#
+
+# --- Visual Studio directories and files ---
+# Intermediate files, build outputs
+[Bb]in/
+[Oo]bj/
+[Ss]uop
+.vs/
+
+# User-specific files
+*.user
+*.suo
+*.userossc
+
+# Packages and restore files
+packages/
+*.nupkg
+*.cache
+
+# Visual Studio Code files
+.vscode/
+
+# --- Test project files ---
+# Test results and temporary files
+TestResults/
+*.trx
+
+# --- Other common files ---
+# Local settings, secrets, and environment files
+appsettings.Development.json
+appsettings.json.user
+*.secrets.json
+
+# Logs
+*.log
+[Ll]ogs/
+
+# Git-related files
+.git/
+.gitignore
+.gitattributes
+
+# Rider-specific files
+.idea/
+
+publish/
