@@ -69,13 +69,15 @@ The ForkliftDto object is used for data transfer between the client and the API.
 
 ### 3.2. Setup and Installation
 
-1.  git clone https://github.com/your-username/forklift-api.gitcd forklift-api
+1.  git clone https://github.com/your-username/forklift-api.git
+  
+2.  cd forklift-api
     
-2.  dotnet restore ForkliftAPISolution.sln
+3.  dotnet restore ForkliftAPISolution.sln
     
-3.  dotnet ef database update --project ForkliftAPI.Infrastructure --startup-project ForkliftAPI.Api_Note: Ensure your database connection string in appsettings.json is correctly configured.
+4.  dotnet ef database update --project ForkliftAPI.Infrastructure --startup-project ForkliftAPI.Api_Note: Ensure your database connection string in appsettings.json is correctly configured.
     
-4.  dotnet run --project ForkliftAPI.ApiThe API will be available at http://localhost:5000 (or https://localhost:5001 with HTTPS).
+5.  dotnet run --project ForkliftAPI.ApiThe API will be available at http://localhost:5000 (or https://localhost:5001 with HTTPS).
     
 4\. Contributing
 ----------------
