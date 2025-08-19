@@ -23,16 +23,14 @@ builder.Services.AddScoped<IForkliftService, ForkliftService>();
 
 builder.Services.AddAutoMapper(typeof(ForkliftProfile).Assembly);
 
-// Read allowed origins from appsettings.json
-var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
-
 // Add CORS policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontendApp",
         policy =>
         {
-            policy.WithOrigins(allowedOrigins)
+            policy.WithOrigins("http://localhost:5173")  // React dev server URL
+                  .WithOrigins("https://delightful-ocean-041da3300.2.azurestaticapps.net")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
