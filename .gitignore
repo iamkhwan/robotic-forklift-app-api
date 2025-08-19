@@ -21,6 +21,7 @@ packages/
 
 # Visual Studio Code files
 .vscode/
+!.vscode/launch.json
 
 # --- Test project files ---
 # Test results and temporary files

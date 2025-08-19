@@ -75,9 +75,15 @@ The ForkliftDto object is used for data transfer between the client and the API.
     
 3.  dotnet restore ForkliftAPISolution.sln
     
-4.  dotnet ef database update --project ForkliftAPI.Infrastructure --startup-project ForkliftAPI.Api_Note: Ensure your database connection string in appsettings.json is correctly configured.
+4.  (optional) dotnet ef database update --project ForkliftAPI.Infrastructure --startup-project ForkliftAPI.Api
+
+    Note: Ensure your database connection string in appsettings.json is correctly configured.
     
-5.  dotnet run --project ForkliftAPI.ApiThe API will be available at http://localhost:5000 (or https://localhost:5001 with HTTPS).
+5.  dotnet run --project ForkliftAPI.Api
+
+    The API will be available at http://localhost:5000 (or https://localhost:5001 with HTTPS, https://localhost:5001/swagger/index.html for Swagger).
+
+**If you are running on this project on the VS Code, please use Debug mode with launch.json file (.vscode) to "Run and Debug"**
     
 4\. Contributing
 ----------------
