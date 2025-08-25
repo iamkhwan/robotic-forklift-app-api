@@ -9,5 +9,7 @@ namespace ForkliftAPI.Application.Interfaces
         Task<List<string>> GetExistingModelNumbersAsync(List<string> modelNumbers);
         Task ClearAllForkliftsAsync();
         Task<bool> ExistsAsync(string modelNumber);
+        Task<List<ForkliftCommand>> GetCommandsByIdAsync(string modelNumber);
+        Task<bool> AddCommandAsync(ForkliftCommand command);
     }
 }

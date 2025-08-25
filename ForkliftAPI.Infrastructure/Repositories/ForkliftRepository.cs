@@ -43,5 +43,20 @@ namespace ForkliftAPI.Infrastructure.Repositories
         {
             return _context.Forklifts.AnyAsync(f => f.ModelNumber == modelNumber);
         }
+
+        public Task<List<ForkliftCommand>> GetCommandsByIdAsync(string modelNumber)
+        {
+            return _context.ForkliftCommands
+                .Where(c => c.ModelNumber == modelNumber)
+                .OrderByDescending(c => c.ActionDate)
+                .ToListAsync();
+        }
+
+        public async Task<bool> AddCommandAsync(ForkliftCommand command)
+        {
+            await _context.ForkliftCommands.AddAsync(command);
+            var result = await _context.SaveChangesAsync();
+            return result > 0;
+        }
     }
 }

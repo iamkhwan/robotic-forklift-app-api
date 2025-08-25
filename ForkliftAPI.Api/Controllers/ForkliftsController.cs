@@ -12,7 +12,7 @@ namespace ForkliftAPI.Api.Controllers
     public class ForkliftsController : ControllerBase
     {
         private readonly IForkliftService _service;
-        
+
         public ForkliftsController(IForkliftService service)
         {
             _service = service;
@@ -41,5 +41,25 @@ namespace ForkliftAPI.Api.Controllers
             await _service.ClearAllForkliftsAsync();
             return NoContent();
         }
+
+        [HttpGet("commands/{modelNumber}")]
+        public async Task<ActionResult<List<ForkliftCommandDto>>> GetForkliftCommandById(string modelNumber)
+        {
+            var forkliftCommandDto = await _service.GetForkliftCommandByIdAsync(modelNumber);
+            if (forkliftCommandDto == null)
+                return NotFound();
+
+            return Ok(forkliftCommandDto);
+        }
+
+        [HttpPost("command")]
+        public async Task<bool> SubmitForkliftCommandAsync([FromBody] ForkliftCommandDto commandDto)
+        {
+            if (commandDto == null)
+                return false;
+
+            return await _service.SubmitForkliftCommandAsync(commandDto);
+        }
+
     }
 }

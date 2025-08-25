@@ -49,5 +49,18 @@ namespace ForkliftAPI.Application.Services
         {
             await _repository.ClearAllForkliftsAsync();
         }
+
+        public async Task<List<ForkliftCommandDto>> GetForkliftCommandByIdAsync(string modelNumber)
+        {
+            var forkliftCommands = await _repository.GetCommandsByIdAsync(modelNumber);
+            return _mapper.Map<List<ForkliftCommandDto>>(forkliftCommands);
+        }
+
+        public async Task<bool> SubmitForkliftCommandAsync(ForkliftCommandDto commandDto)
+        {
+            var command = _mapper.Map<ForkliftCommand>(commandDto);
+            var result = await _repository.AddCommandAsync(command);
+            return result;
+        }
     }
 }

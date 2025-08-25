@@ -20,7 +20,7 @@ packages/
 *.cache
 
 # Visual Studio Code files
-.vscode/
+.vscode/*
 !.vscode/launch.json
 
 # --- Test project files ---

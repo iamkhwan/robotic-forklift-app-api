@@ -3,6 +3,7 @@ using System;
 using ForkliftAPI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ForkliftAPI.Infrastructure.Migrations
 {
     [DbContext(typeof(ForkliftContext))]
-    partial class ForkliftContextModelSnapshot : ModelSnapshot
+    [Migration("20250823091522_AddForkliftCommandTable")]
+    partial class AddForkliftCommandTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.8");

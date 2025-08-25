@@ -10,6 +10,8 @@ namespace ForkliftAPI.Infrastructure.Data
         public ForkliftContext(DbContextOptions<ForkliftContext> options) : base(options) { }
 
         public DbSet<Forklift> Forklifts => Set<Forklift>();
+
+        public DbSet<ForkliftCommand> ForkliftCommands => Set<ForkliftCommand>();
     }
 
     // Design-time factory for EF Core tools

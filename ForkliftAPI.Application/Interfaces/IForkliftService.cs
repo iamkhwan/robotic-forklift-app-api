@@ -8,5 +8,7 @@ namespace ForkliftAPI.Application.Interfaces
         Task<List<ForkliftDto>> GetAllForkliftsAsync();
         Task<int> UploadForkliftsAsync(List<ForkliftDto> forkliftsDto);
         Task ClearAllForkliftsAsync();
+        Task<List<ForkliftCommandDto>> GetForkliftCommandByIdAsync(string modelNumber);
+        Task<bool> SubmitForkliftCommandAsync(ForkliftCommandDto commandDto);
     }
 }

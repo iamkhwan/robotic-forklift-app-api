@@ -23,6 +23,18 @@ namespace ForkliftAPI.Application.MappingProfiles
                 .ForMember(dest => dest.ModelNumber, opt => opt.MapFrom(src => src.ModelNumber))
                 .ForMember(dest => dest.ManufacturingDate,
                            opt => opt.MapFrom(src => FormatDate(src.ManufacturingDate)));
+
+            CreateMap<ForkliftCommand, ForkliftCommandDto>()
+                .ForMember(dest => dest.ModelNumber, opt => opt.MapFrom(src => src.ModelNumber))
+                .ForMember(dest => dest.Command, opt => opt.MapFrom(src => src.Command))
+                .ForMember(dest => dest.ActionDate,
+                           opt => opt.MapFrom(src => src.ActionDate.ToString("o")));
+
+            CreateMap<ForkliftCommandDto, ForkliftCommand>()
+                .ForMember(dest => dest.ModelNumber, opt => opt.MapFrom(src => src.ModelNumber))
+                .ForMember(dest => dest.Command, opt => opt.MapFrom(src => src.Command))
+                .ForMember(dest => dest.ActionDate, opt => opt.MapFrom(src => ParseDate(src.ActionDate)));
+
         }
 
         private static DateTime ParseDate(string? dateString)

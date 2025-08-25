@@ -252,5 +252,92 @@ namespace ForkliftAPI.UnitTests.Services
             ), Times.Once);
         }
 
+        [Fact]
+        public async Task GetForkLiftCommandByIdAsync_ShouldReturnAllCommands()
+        {
+            // Arrange
+            var mockRepo = new Mock<IForkliftRepository>();
+            var mockMapper = new Mock<IMapper>();
+
+            var commands = new List<ForkliftCommand>
+            {
+                new ForkliftCommand("M1", "F10R90L90B5", DateTime.UtcNow.ToString("o")),
+                new ForkliftCommand("M1", "F10R90L90B5", DateTime.UtcNow.AddMinutes(-5).ToString("o"))
+            };
+
+            var commandDtos = new List<ForkliftCommandDto>
+            {
+                new ForkliftCommandDto { ModelNumber = "M1", Command = "F10R90L90B5", ActionDate = DateTime.UtcNow.ToString("o") },
+                new ForkliftCommandDto { ModelNumber = "M1", Command = "F10R90L90B5", ActionDate = DateTime.UtcNow.AddMinutes(-5).ToString("o") }
+            };
+
+            mockRepo.Setup(r => r.GetCommandsByIdAsync("M1"))
+                    .ReturnsAsync(commands);
+
+            mockMapper.Setup(m => m.Map<List<ForkliftCommandDto>>(It.IsAny<List<ForkliftCommand>>()))
+                      .Returns(commandDtos);
+
+            var service = new ForkliftService(mockRepo.Object, mockMapper.Object);
+
+            // Act
+            var result = await service.GetForkliftCommandByIdAsync("M1");
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(2, result.Count);
+        }
+
+        [Fact]
+        public async Task GetForkLiftCommandByIdAsync_ShouldReturnEmptyCommands()
+        {
+            // Arrange
+            var mockRepo = new Mock<IForkliftRepository>();
+            var mockMapper = new Mock<IMapper>();
+
+            var commands = new List<ForkliftCommand>
+            {
+                new ForkliftCommand("M1", "F10R90L90B5", DateTime.UtcNow.ToString("o")),
+                new ForkliftCommand("M1", "F10R90L90B5", DateTime.UtcNow.AddMinutes(-5).ToString("o"))
+            };
+
+            var commandDtos = new List<ForkliftCommandDto>
+            {
+                new ForkliftCommandDto { ModelNumber = "M1", Command = "F10R90L90B5", ActionDate = DateTime.UtcNow.ToString("o") },
+                new ForkliftCommandDto { ModelNumber = "M1", Command = "F10R90L90B5", ActionDate = DateTime.UtcNow.AddMinutes(-5).ToString("o") }
+            };
+
+            mockRepo.Setup(r => r.GetCommandsByIdAsync("M2"))
+                    .ReturnsAsync(new List<ForkliftCommand>());
+
+            mockMapper.Setup(m => m.Map<List<ForkliftCommandDto>>(It.IsAny<List<ForkliftCommand>>()))
+                      .Returns(new List<ForkliftCommandDto>());
+
+            var service = new ForkliftService(mockRepo.Object, mockMapper.Object);
+
+            // Act
+            var result = await service.GetForkliftCommandByIdAsync("M2");
+
+            // Assert
+            Assert.Empty(result);
+        }
+
+        [Fact]
+        public async Task GetForkLiftCommandByIdAsync_ThrowsException()
+        {
+            // Arrange
+            var mockRepo = new Mock<IForkliftRepository>();
+            var mockMapper = new Mock<IMapper>();
+
+            mockRepo.Setup(r => r.GetCommandsByIdAsync("M2"))
+                    .ThrowsAsync(new Exception("Database error"));
+
+            mockMapper.Setup(m => m.Map<List<ForkliftCommandDto>>(It.IsAny<List<ForkliftCommand>>()))
+                      .Throws(new Exception("Mapping error"));
+
+            var service = new ForkliftService(mockRepo.Object, mockMapper.Object);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<Exception>(() => service.GetForkliftCommandByIdAsync("M2"));
+        }
     }
 }
